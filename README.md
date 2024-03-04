@@ -1,37 +1,49 @@
 # Crypto Research Tools
 
-Bienvenido al repositorio `crypto_research_tools`, una colección dedicada de herramientas y scripts diseñados para empoderar a investigadores, analistas y entusiastas del mercado de criptomonedas con datos y análisis de alta calidad.
+Este repositorio, `crypto_research_tools`, está dedicado a proporcionar herramientas útiles para la investigación y análisis del mercado de criptomonedas. Aquí encontrarás scripts y módulos diseñados para facilitar la recopilación de datos, el análisis y más, específicamente dirigidos a entusiastas de las criptomonedas, investigadores y traders.
 
-## Descripción
+## Herramientas Disponibles
 
-Este repositorio contiene varias herramientas desarrolladas para facilitar la investigación y el análisis del mercado de criptomonedas. Desde la descarga de datos históricos de precios hasta herramientas de visualización y análisis técnico, `crypto_research_tools` busca ser un recurso valioso para cualquiera que busque profundizar en el estudio de las criptomonedas.
+### Binance Market Data Downloader
 
-## Herramientas Incluidas
+- **Descripción**: Un módulo de Python para descargar datos históricos del mercado de Binance, incluidos klines (candlesticks), para cualquier símbolo de trading y intervalo de tiempo. Los datos se guardan en archivos CSV para facilitar su análisis.
+- **Características Principales**:
+  - Descarga de datos de mercado para cualquier símbolo disponible en Binance.
+  - Soporte para múltiples intervalos de tiempo.
+  - Opción para agrupar los datos por mes o año.
+  - Guardado de datos en formato CSV.
+- **Cómo Usar**: Consulta la sección [Uso de Binance Market Data Downloader](#uso-de-binance-market-data-downloader) más abajo.
 
-- **Data Downloader**: Script para descargar datos históricos de precios de varias criptomonedas desde la API de Binance.
-- **Market Analyzer**: Una colección de Jupyter Notebooks para análisis técnico y cuantitativo.
-- **Visualizer**: Scripts de Python que utilizan mplfinance para generar visualizaciones de datos de mercado, incluyendo gráficos OHLC, velas japonesas y más.
+## Requisitos Previos
 
-## Cómo Empezar
+Para utilizar las herramientas en este repositorio, necesitarás Python 3.6 o superior. Cada herramienta puede tener sus propias dependencias adicionales, que se detallan en sus respectivos directorios o documentación.
 
-Para comenzar a utilizar las herramientas, sigue estos pasos:
+## Instalación
 
-1. Clona este repositorio en tu máquina local.
-2. Instala las dependencias necesarias utilizando `pip install -r requirements.txt`.
-3. Explora los directorios de herramientas individuales para instrucciones específicas sobre cada herramienta.
+Para instalar las dependencias necesarias para las herramientas de este repositorio, ejecuta el comando apropiado de `pip install -r requirements.txt` desde el directorio de cada herramienta. Por ejemplo, para `binance_market_data_downloader`:
 
-## Contribuir
+```bash
+cd binance_market_data_downloader
+pip install -r requirements.txt
+```
 
-Si estás interesado en contribuir a `crypto_research_tools`, ¡tus aportes son bienvenidos! Por favor, lee `CONTRIBUTING.md` para más información sobre cómo puedes contribuir a este proyecto.
+## Uso de Binance Market Data Downloader
+
+1. Navega al directorio `binance_market_data_downloader`.
+2. Ejecuta el script con el comando `python binance_market_data_downloader.py`.
+3. Sigue las instrucciones en la terminal para introducir los parámetros requeridos (símbolo de trading, intervalo de tiempo, fechas, etc.).
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Si tienes ideas para nuevas herramientas o mejoras en las existentes, no dudes en abrir un issue o un pull request.
 
 ## Licencia
 
-Este proyecto está licenciado bajo la Licencia MIT - ve el archivo `LICENSE.md` para más detalles.
+Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
 
-## Contacto
+## Autores
 
-Si tienes preguntas o comentarios sobre este proyecto, por favor, abre un issue en este repositorio.
+- [@orozcodex](https://github.com/orozcodex) - Creador del proyecto y contribuidor principal.
+```
 
----
-
-¡Gracias por visitar `crypto_research_tools` y feliz investigación!
+Este `README.md` proporciona una visión general del propósito del repositorio, instrucciones sobre cómo utilizar las herramientas proporcionadas, cómo instalar dependencias y cómo contribuir al proyecto. Es importante personalizar cada sección según las necesidades específicas de tu proyecto y actualizarlo a medida que el repositorio crezca con más herramientas o funcionalidades.

@@ -6,7 +6,7 @@ Este script permite descargar datos históricos del mercado
 Los datos se guardan en archivos CSV, con la opción de agrupar
     por mes o año y seleccionar el formato de fecha (Unix o humano).
 
-Autor: @orozcodex
+Copyright (c) 2024 Orozcode X
 
 Funciones:
 - Descarga de klines (candlesticks) de la API de Binance.

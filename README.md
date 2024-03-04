@@ -44,6 +44,3 @@ Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
 ## Autores
 
 - [@orozcodex](https://github.com/orozcodex) - Creador del proyecto y contribuidor principal.
-```
-
-Este `README.md` proporciona una visión general del propósito del repositorio, instrucciones sobre cómo utilizar las herramientas proporcionadas, cómo instalar dependencias y cómo contribuir al proyecto. Es importante personalizar cada sección según las necesidades específicas de tu proyecto y actualizarlo a medida que el repositorio crezca con más herramientas o funcionalidades.

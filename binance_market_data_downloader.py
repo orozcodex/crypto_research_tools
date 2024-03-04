@@ -1,12 +1,12 @@
 """
 Binance Market Data Downloader
 
-Este script permite descargar datos históricos del mercado
-    de Binance para un símbolo y intervalo especificados por el usuario.
-Los datos se guardan en archivos CSV, con la opción de agrupar
-    por mes o año y seleccionar el formato de fecha (Unix o humano).
+Este script permite descargar datos históricos del mercado de Binance para un
+símbolo y intervalo especificados por el usuario. Los datos se guardan en
+archivos CSV, con la opción de agrupar por mes o año y seleccionar el formato
+de fecha (Unix o humano).
 
-Copyright (c) 2024 Orozcode X
+Autor: @orozcodex
 
 Funciones:
 - Descarga de klines (candlesticks) de la API de Binance.
@@ -22,18 +22,17 @@ import logging
 import os
 
 # Configuración de logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
 
 # Mensajes en Español e Inglés ajustados
 messages = {
     'esp': {
         'symbol_prompt': "Introduce el símbolo (ejemplo: BTCUSDT, ETHUSDT): ",
         'interval_prompt': (
-            "Introduce intervalo (ej: 1m, 3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, "
-            "8h, 12h, 1d, 3d, 1w, 1M): "),
+            "Introduce el intervalo (ejemplos: 1m, 3m, 5m, 15m, "
+            "30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M): "),
         'start_date_prompt': "Fecha de inicio (YYYY-MM-DD): ",
         'end_date_prompt': "Fecha de fin (YYYY-MM-DD): ",
         'aggregation_prompt': "¿Agrupar datos por Mes o Año? (M/A): ",
@@ -45,8 +44,8 @@ messages = {
     'eng': {
         'symbol_prompt': "Enter symbol (example: BTCUSDT, ETHUSDT): ",
         'interval_prompt': (
-            "Enter interval for klines (ex: 1m, 3m, 5m, 15m, 30m, 1h, 2h, "
-            "4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M): "),
+            "Enter interval for klines (ex: 1m, 3m, 5m, 15m, "
+            "30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M): "),
         'start_date_prompt': "Start date (YYYY-MM-DD): ",
         'end_date_prompt': "End date (YYYY-MM-DD): ",
         'aggregation_prompt': "Group data by Month or Year? (M/Y): ",
@@ -75,7 +74,7 @@ def timestamp(date_str):
 def format_date(ts, format_type):
     dt_format = '%Y-%m-%d %H:%M:%S'
     if format_type == "human":
-        return datetime.fromtimestamp(int(ts) / 1000, timezone.utc)\
+        return datetime.fromtimestamp(int(ts) / 1000, timezone.utc) \
             .strftime(dt_format)
     else:
         return str(ts)
@@ -92,9 +91,12 @@ def write_to_csv(file, data, date_format):
         writer.writerow(market_data)
 
 
-data_folder = "downloaded_data"
+data_folder_input = input("Introduce la ruta para guardar los datos o "
+                          "presiona Enter para usar el directorio actual: ")
+data_folder = data_folder_input if data_folder_input else "downloaded_data"
 if not os.path.exists(data_folder):
     os.makedirs(data_folder)
+
 
 symbol = input(msg['symbol_prompt']).upper()
 interval = input(msg['interval_prompt'])
@@ -135,8 +137,9 @@ try:
             if period != current_period:
                 if file:
                     file.close()
-                filename = (f"{data_folder}/{symbol}_{interval}_"
-                            f"market_data_{period}.csv")
+                filename = os.path.join(data_folder,
+                                        f"{symbol}_{interval}_"
+                                        f"market_data_{period}.csv")
                 file = open(filename, mode='w', newline='')
                 headers = [
                     "Open time", "Open", "High", "Low", "Close",
